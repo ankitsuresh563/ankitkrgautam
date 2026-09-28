@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ankit Kumar Gautam — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f3f1fb;--ink:#1a1740;--mute:#5d5a85;--card:rgba(255,255,255,.62);--line:rgba(26,23,64,.14);--acc:#e8476b;--acc2:#5b4bff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1030;--ink:#eeeaff;--mute:#a9a6d6;--card:rgba(30,28,80,.55);--line:rgba(238,234,255,.16);--acc:#ff7a95;--acc2:#8f84ff}}
+:root[data-theme="dark"]{--bg:#0f1030;--ink:#eeeaff;--mute:#a9a6d6;--card:rgba(30,28,80,.55);--line:rgba(238,234,255,.16);--acc:#ff7a95;--acc2:#8f84ff}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.65 "DM Sans",system-ui,sans-serif;overflow-x:hidden}
+#gl{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+header{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:18px clamp(20px,5vw,60px)}
+.logo{font:800 20px Syne,sans-serif;color:var(--ink);text-decoration:none}
+nav{display:flex;gap:22px;align-items:center}
+nav a{color:var(--mute);text-decoration:none;font-weight:500;font-size:15px;transition:color .2s}
+nav a:hover,nav a:focus-visible{color:var(--acc)}
+#tg{background:var(--card);border:1px solid var(--line);color:var(--ink);border-radius:99px;width:38px;height:38px;cursor:pointer;font-size:16px;backdrop-filter:blur(8px)}
+:focus-visible{outline:2px solid var(--acc2);outline-offset:3px}
+main{position:relative;z-index:2}
+section{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:110px clamp(20px,7vw,110px) 70px}
+h1{font:800 clamp(46px,9vw,124px)/.95 Syne,sans-serif;letter-spacing:-.03em;max-width:9em}
+h1 span{display:block;background:linear-gradient(90deg,var(--acc2),var(--acc));-webkit-background-clip:text;background-clip:text;color:transparent}
+h2{font:800 clamp(32px,5vw,58px)/1.05 Syne,sans-serif;letter-spacing:-.02em;margin-bottom:28px}
+p.lead{max-width:34em;color:var(--mute);font-size:clamp(17px,1.6vw,21px);margin-top:26px}
+.btns{display:flex;gap:14px;margin-top:36px;flex-wrap:wrap}
+.btn{padding:14px 28px;border-radius:99px;font-weight:500;text-decoration:none;transition:transform .25s,box-shadow .25s}
+.btn.p{background:linear-gradient(90deg,var(--acc2),var(--acc));color:#fff;box-shadow:0 10px 30px -10px var(--acc2)}
+.btn.g{border:1px solid var(--line);color:var(--ink);background:var(--card);backdrop-filter:blur(8px)}
+.btn:hover{transform:translateY(-3px)}
+.about{max-width:620px;margin-left:auto}
+.about p{color:var(--mute);margin-bottom:16px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.chips b{font-weight:500;font-size:14px;padding:8px 16px;border-radius:99px;border:1px solid var(--line);background:var(--card);backdrop-filter:blur(8px)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;perspective:1100px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:28px;backdrop-filter:blur(12px);transform-style:preserve-3d;transition:transform .15s ease-out,box-shadow .3s;will-change:transform;box-shadow:0 20px 50px -30px var(--acc2)}
+.card .tag{font-size:13px;color:var(--acc);font-weight:500}
+.card h3{font:800 24px Syne,sans-serif;margin:10px 0 8px;transform:translateZ(30px)}
+.card p{color:var(--mute);font-size:15.5px;transform:translateZ(15px)}
+.card .thumb{height:120px;border-radius:14px;margin-bottom:18px;transform:translateZ(40px)}
+.t1{background:linear-gradient(135deg,var(--acc2),#22d3ee)}.t2{background:linear-gradient(135deg,var(--acc),#ffb86b)}.t3{background:linear-gradient(135deg,#34d399,var(--acc2))}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,4vw,56px);perspective:1100px}
+.col{display:flex;flex-direction:column;gap:22px}
+.ch{font:800 clamp(24px,3vw,34px) Syne,sans-serif;padding-bottom:10px;border-bottom:2px solid var(--acc2)}
+.col:nth-child(2) .ch{border-color:var(--acc)}
+.cd{color:var(--mute);margin-top:-10px}
+.card.empty{border-style:dashed}
+@media (max-width:760px){.cols{grid-template-columns:1fr}}
+.contact{align-items:flex-start}
+.contact a.mail{font:800 clamp(24px,5vw,60px) Syne,sans-serif;color:var(--ink);text-decoration:none;border-bottom:3px solid var(--acc);word-break:break-all}
+.links{display:flex;gap:22px;margin-top:30px;flex-wrap:wrap}.links a{color:var(--mute);text-decoration:none}.links a:hover{color:var(--acc)}
+footer{position:relative;z-index:2;text-align:center;padding:30px;color:var(--mute);font-size:14px}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .9s,transform .9s}
+.rv.in{opacity:1;transform:none}
+@media (max-width:640px){nav a{display:none}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<canvas id="gl" aria-hidden="true"></canvas>
+<header>
+  <a class="logo" href="#home">Ankit.</a>
+  <nav>
+    <a href="#about">About</a><a href="#work">Projects</a><a href="#contact">Contact</a>
+    <button id="tg" aria-label="Toggle light and dark theme">◐</button>
+  </nav>
+</header>
+<main>
+  <section id="home">
+    <h1>Hi, I'm Ankit. <span>I design how things move.</span></h1>
+    <p class="lead">Mechanical engineering student who loves CAD design and supply chain. I like turning parts and processes into things that work well together.</p>
+    <div class="btns"><a class="btn p" href="#work">See what I do</a><a class="btn g" href="#contact">Get in touch</a></div>
+  </section>
+  <section id="about">
+    <div class="about rv">
+      <h2>About me</h2>
+      <p>I'm a mechanical engineering student. I enjoy designing parts and assemblies in CAD, and I'm curious about how products get made, moved and delivered through a supply chain.</p>
+      <p>I want to connect good design with smart logistics, so a product is easy to make and easy to deliver.</p>
+      <div class="chips"><b>CAD design</b><b>3D modelling</b><b>Supply chain</b><b>Logistics</b><b>Mechanical design</b><b>Problem solving</b></div>
+    </div>
+  </section>
+  <section id="work">
+    <h2 class="rv">Projects</h2>
+    <div class="cols rv">
+      <div class="col">
+        <h3 class="ch">Design</h3>
+        <p class="cd">CAD models, assemblies and mechanical design work.</p>
+        <article class="card empty"><div class="thumb t1"></div><span class="tag">CAD</span><h3>Coming soon</h3><p>A new project will be added here.</p></article>
+        <article class="card empty"><div class="thumb t1"></div><span class="tag">CAD</span><h3>Coming soon</h3><p>A new project will be added here.</p></article>
+      </div>
+      <div class="col">
+        <h3 class="ch">Supply chain</h3>
+        <p class="cd">Analysis, planning and logistics projects.</p>
+        <article class="card empty"><div class="thumb t2"></div><span class="tag">Supply chain</span><h3>Coming soon</h3><p>A new project will be added here.</p></article>
+        <article class="card empty"><div class="thumb t2"></div><span class="tag">Supply chain</span><h3>Coming soon</h3><p>A new project will be added here.</p></article>
+      </div>
+    </div>
+  </section>
+  <section id="contact" class="contact">
+    <h2 class="rv">Let's work together</h2>
+    <a class="mail rv" href="mailto:ankitsuresh563@gmail.com">ankitsuresh563@gmail.com</a>
+    <div class="links rv"><a href="https://github.com/ankitsuresh563" target="_blank" rel="noopener">GitHub</a><a href="https://www.linkedin.com/in/ankitgautam563" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.instagram.com/ankitsuresh563" target="_blank" rel="noopener">Instagram</a></div>
+  </section>
+</main>
+<footer>© 2026 Ankit Kumar Gautam</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function(){
+var root=document.documentElement,tg=document.getElementById('tg');
+tg.onclick=function(){var d=getComputedStyle(root).getPropertyValue('--bg').trim()==='#0f1030';root.setAttribute('data-theme',d?'light':'dark');colors()};
+var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting)x.target.classList.add('in')})},{threshold:.15});
+document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+
+/* 3D card tilt */
+document.querySelectorAll('.card').forEach(function(c){
+  c.addEventListener('pointermove',function(e){var r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+    c.style.transform='rotateY('+(x*14)+'deg) rotateX('+(-y*14)+'deg) translateZ(8px)'});
+  c.addEventListener('pointerleave',function(){c.style.transform=''});
+});
+
+if(!window.THREE)return;
+var cv=document.getElementById('gl'),R=new THREE.WebGLRenderer({canvas:cv,antialias:true,alpha:true});
+R.setPixelRatio(Math.min(devicePixelRatio,2));
+var S=new THREE.Scene(),C=new THREE.PerspectiveCamera(50,1,.1,100);C.position.z=7;
+var g=new THREE.Group();S.add(g);
+var sh=new THREE.Shape(),T=12,st=Math.PI*2/T,ro=2,ri=1.6;
+for(var i=0;i<T;i++){var a=i*st;[[ri,0],[ro,.18],[ro,.48],[ri,.66]].forEach(function(q,k){var x=Math.cos(a+q[1]*st)*q[0],y=Math.sin(a+q[1]*st)*q[0];(i==0&&k==0)?sh.moveTo(x,y):sh.lineTo(x,y)})}
+var hole=new THREE.Path();hole.absarc(0,0,.75,0,Math.PI*2,true);sh.holes.push(hole);
+var gg=new THREE.ExtrudeGeometry(sh,{depth:.7,bevelEnabled:true,bevelSize:.07,bevelThickness:.07,bevelSegments:3});gg.center();
+var knot=new THREE.Mesh(gg,new THREE.MeshStandardMaterial({color:0x5b4bff,metalness:.6,roughness:.25}));
+var wire=new THREE.Mesh(new THREE.IcosahedronGeometry(2.6,1),new THREE.MeshBasicMaterial({color:0xe8476b,wireframe:true,transparent:true,opacity:.35}));
+g.add(knot,wire);
+var N=700,pos=new Float32Array(N*3);
+for(var i=0;i<N;i++){pos[i*3]=(Math.random()-.5)*26;pos[i*3+1]=(Math.random()-.5)*26;pos[i*3+2]=(Math.random()-.5)*18-2}
+var pg=new THREE.BufferGeometry();pg.setAttribute('position',new THREE.BufferAttribute(pos,3));
+var pm=new THREE.PointsMaterial({size:.04,color:0x8f84ff,transparent:true,opacity:.8}),pts=new THREE.Points(pg,pm);S.add(pts);
+S.add(new THREE.AmbientLight(0xffffff,.7));
+var l1=new THREE.PointLight(0xff7a95,2.2,40);l1.position.set(5,4,6);S.add(l1);
+var l2=new THREE.PointLight(0x6ee7ff,1.6,40);l2.position.set(-6,-3,4);S.add(l2);
+function colors(){var dark=getComputedStyle(root).getPropertyValue('--bg').trim()==='#0f1030';
+  pm.color.set(dark?0xb8b2ff:0x5b4bff);knot.material.color.set(dark?0x8f84ff:0x5b4bff)}
+colors();
+function size(){var w=innerWidth,h=innerHeight;R.setSize(w,h,false);C.aspect=w/h;C.updateProjectionMatrix()}
+size();addEventListener('resize',size);
+var mx=0,my=0,sc=0,tsc=0;
+addEventListener('pointermove',function(e){mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5});
+function onScroll(){var m=document.documentElement.scrollHeight-innerHeight;tsc=m>0?scrollY/m:0}
+addEventListener('scroll',onScroll);onScroll();
+var t0=performance.now();
+function loop(){
+  var t=(performance.now()-t0)/1000;
+  sc+=(tsc-sc)*.06;
+  var wide=innerWidth>760;
+  /* scroll path: right (hero) -> left (about) -> right (work) -> center (contact) */
+  var tx=wide?Math.cos(sc*Math.PI*3)*2.6:0;
+  var ty=wide?0:1.6-sc*1.2;
+  g.position.x+=(tx-g.position.x)*.08;g.position.y+=(ty-g.position.y)*.08;
+  var s=1+Math.sin(sc*Math.PI)*.25;g.scale.setScalar(wide?s:.65);
+  var sp=reduce?0:1;
+  knot.rotation.x=.45+sc*4;knot.rotation.y=sc*3+Math.sin(t*.5)*.3*sp;knot.rotation.z=t*.35*sp;
+  wire.rotation.y=-t*.12*sp-sc*3;wire.rotation.x=t*.08*sp;
+  g.rotation.y+=(mx*.8-g.rotation.y)*.05;g.rotation.x+=(my*.6-g.rotation.x)*.05;
+  pts.rotation.y=t*.02*sp+sc*1.2;pts.position.y=sc*3;
+  C.position.z=7-sc*1.2;
+  R.render(S,C);requestAnimationFrame(loop)}
+loop();
+})();
+</script>
+</body>
+</html>
